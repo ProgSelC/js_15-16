@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Homework JS_15-16</title>
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="navbar-brand">
+                <form action="#">
+                    <label>GitHub <input id="mainSearch" type="text"></label>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container">
+
+    <div id="results" class="results">Please input search request (minimum 2 symbols)</div>
+</div>
+<script type="text/html" id="content-template">
+    <% if(total_count == 0) { %>
+    <div>Sorry, nothing found :-(</div>
+    <% } %>
+    <% items.forEach(function(item) { %>
+    <div class="media">
+        <div class="media-left">
+            <a href="<%- item.owner.html_url %>">
+                <img class="media-object avatar" src="<%- item.owner.avatar_url %>" alt="user avatar">
+                <%- item.owner.login %>
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading"><%- item.name %></h4>
+            <h5>
+                <a href="<%- item.html_url %>"><%- item.html_url %></a>
+            </h5>
+            <p><%- item.description %></p>
+        </div>
+    </div>
+    <hr>
+    <% }); %>
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+<script src="js/script.js"></script>
+</body>
+
+</html>

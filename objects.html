@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework JS_15-16_Objects</title>
+</head>
+<body>
+<h1>Open console to see results.</h1>
+<script>
+    function Human(name, age, gender, height, weight) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.height = height;
+        this.weight = weight;
+    }
+    function Student(name, age, gender, height, weight, university, grants) {
+        Human.call(this, name, age, gender, height, weight);
+        this.university = university;
+        this.grants = grants;
+    }
+    Student.prototype.watchSerials = function() {
+        console.log(this.name + " is watching serials");
+    }
+    function Worker(name, age, gender, height, weight, job, salary) {
+        Human.call(this, name, age, gender, height, weight);
+        this.job = job;
+        this.salary = salary;
+    }
+    Worker.prototype.work = function() {
+        console.log(this.name + " is working");
+    }
+
+    var vasya = new Student("Vasya", 19, "male", 172, 80, "Harvard", 100);
+    var tanya = new Student("Tanya", 20, "female", 165, 52, "Yale", 500);
+    var ivan = new Worker("Ivan", 45, "male", 169, 95, "SoftServe", 3000);
+    var marina = new Worker("Marina", 26, "female", 170, 68, "Ciklum", 1500);
+
+    console.dir(vasya);
+    console.dir(tanya);
+    console.dir(ivan);
+    console.dir(marina);
+
+    vasya.watchSerials();
+    tanya.watchSerials();
+    ivan.work();
+    marina.work();
+</script>
+</body>
+</html>
